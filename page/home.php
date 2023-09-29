@@ -4,93 +4,35 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="../css/custom.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
+    <!-- Simple bar CSS -->
+    <link rel="stylesheet" href="../assets/css/simplebar.css">
+    <!-- Awesome ICON -->
+    <link href="https://kit-pro.fontawesome.com/releases/v6.4.2/css/pro.min.css" rel="stylesheet">
+    <!-- Font SF PRO DISPLAY (APPLE) -->
+    <link href="https://fonts.cdnfonts.com/css/sf-pro-display?styles=98774,98773,98775,98770,98771,98769"
+        rel="stylesheet">
+    <!-- Fonts CSS -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Overpass:ital,wght@0,100;0,200;0,300;0,400;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+    <!-- Icons CSS -->
+    <link rel="stylesheet" href="../assets/css/feather.css">
+    <link rel="stylesheet" href="../assets/css/dataTables.bootstrap4.css">
+    <!-- Date Range Picker CSS -->
+    <link rel="stylesheet" href="../assets/css/daterangepicker.css">
+    <!-- App CSS -->
+    <link rel="stylesheet" href="../assets/css/app-light.css" id="lightTheme">
+    <link rel="stylesheet" href="../assets/css/app-dark.css" id="darkTheme" disabled>
     <title>Home</title>
   </head>
-  <body class="bg-blue">
+  <body class="vertical light">
 
-    <nav class="navbar navbar-expand-lg navbar-light bg-blue">
-        <div class="container-fluid">
-          <a class="navbar-brand" href="#"></a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav">
-              <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#">ข้อมูลผู้ใช้</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">ประวัติการฝึก</a>
-              </li>
-              <!--ZONE ADMIN-->
-              <!--ZONE ADMIN-->
-            </ul>
-          </div>
-        </div>
-    </nav>
-
-    <div class="container mt-2">
-        <div class="input-group">
-            <input type="text" class="form-control form-serch" placeholder="Serch" aria-label="Username" aria-describedby="basic-addon1">
-        </div>
-    </div>
-    <hr>
-    <div class="container">
-        <div class="row mt-3">
-            <h4>SCHEDULE</h4>
-        </div>
-        
-        <div class="row p-3">
-            <div class="card bg-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                <div class="card-body">
-                    <p class="card-text">
-                        <div class="row">
-                            <div class="col-3 bg-blue">
-                                <p class="text-center">08.00</p>
-                            </div>
-                            <div class="col-7">
-                                <p class="text-center">วิชา การเขียนโปรแกรมคอมพิวเตอร์</p>
-                            </div>
-                        </div>
-                    </p>
-                </div>
-            </div>
-        </div>
-
-        <div class="row p-3">
-            <div class="card bg-primary">
-                <div class="card-body">
-                    <p class="card-text">
-                        <div class="row">
-                            <div class="col-3 bg-blue">
-                                <p class="text-center">08.00</p>
-                            </div>
-                            <div class="col-7">
-                                <p class="text-center">วิชา การเขียนโปรแกรมคอมพิวเตอร์</p>
-                            </div>
-                        </div>
-                    </p>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <footer>
-        <div class="container-fluid bg-blue">
-            <div class="row">
-                <div class="card">
-                    <div class="card-body">
-                        <a href="#" class="card-text">HOME</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </footer>
+    <?php include '../inc/inc/header.php'; ?>
+    <?php include '../inc/inc/sidebar.php'; ?>
       
   </body>
 
@@ -112,5 +54,16 @@
     </div>
   </div>
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script src="../assets/js/jquery.min.js"></script>
+    <script src="../assets/js/popper.min.js"></script>
+    <script src="../assets/js/moment.min.js"></script>
+    <script src="../assets/js/bootstrap.min.js"></script>
+    <script src="../assets/js/simplebar.min.js"></script>
+    <script src='../assets/js/daterangepicker.js'></script>
+    <script src='../assets/js/jquery.stickOnScroll.js'></script>
+    <script src="../assets/js/tinycolor-min.js"></script>
+    <script src="../assets/js/config.js"></script>
+    <script src="../assets/js/apps.js"></script>
+    <script src='../assets/js/jquery.dataTables.min.js'></script>
+    <script src='../assets/js/dataTables.bootstrap4.min.js'></script>
 </html>
