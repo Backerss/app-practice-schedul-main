@@ -6,6 +6,15 @@
 
     if(!isset($_SESSION['user_id_db']))
       header("Location: ../index.php");
+
+    
+
+    $sql = "SELECT * FROM user WHERE ID = '".$_SESSION['user_id_db']."'";
+    $result = mysqli_query($conn, $sql);
+
+    $row = mysqli_fetch_assoc($result);
+
+
 ?>
 
 
@@ -54,31 +63,18 @@
     <main role="main" class="main-content">
         <div class="container-fluid">
             <div class="row">
-                <div class="col-12">
-                    <div class="input-group mb-3">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text" id="basic-addon1"><i class="fa-sharp fa-solid fa-folder-magnifying-glass"></i></span>
-                        </div>
-                        <input type="text" class="form-control" placeholder="Username" aria-label="Username"
-                            aria-describedby="basic-addon1">
+                <div class="col-12 text-center">
+                    <div class="avatar avatar-xl">
+                        <img src="../assets/avatars/face-1.jpg" class="avatar-img rounded-circle">
                     </div>
                 </div>
             </div>
-            <hr>
-            <div class="row">
-
-              <?php for($i = 0; $i < 10; $i++): ?>
-              <div class="col-12 mt-2">
-                  <div class="card">
-                    <div class="card-body">
-                      <h5 class="card-title"><?php echo $i ?></h5>
-                      <p class="card-text">Content</p>
-                    </div>
-                  </div>
-              </div>
-              <?php endfor; ?>
+            <div class="row mt-2">
+                <div class="col-lg text-center">
+                    <h2><?php echo $row["user_name"] ?></h2>
+                    <h3><?php echo $row["user_student_id"] ?></h3>
+                </div>
             </div>
-            
         </div>
     </main>
 

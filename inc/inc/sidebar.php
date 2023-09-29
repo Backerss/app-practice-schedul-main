@@ -22,7 +22,7 @@
         </p>
         <ul class="navbar-nav flex-fill w-100 mb-2">
             <li class="nav-item w-100">
-                <a class="nav-link" href="./profile">
+                <a class="nav-link" href="./home.php">
                     <i class="fa-duotone fa-house fa-xl"></i>
                     <span class="ml-3 item-text" style="font-weight:400">Deahboard</span>
                 </a>
