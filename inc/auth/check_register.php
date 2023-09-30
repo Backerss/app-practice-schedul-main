@@ -6,11 +6,12 @@
     require_once '../db.php';
 
     $full_name = $_POST['full_name'];
+    $id_student = $_POST['id_student'];
     $email = $_POST['email'];
+    $tel = $_POST['tel'];
+    $birthday = $_POST['birthday'];
     $password = $_POST['password'];
     $sex = $_POST['sex'];
-    $id_student = $_POST['id_student'];
-    $birthday = $_POST['birth_date'];
 
 
     $sql = "SELECT * FROM user WHERE user_email = '$email'";
@@ -26,7 +27,7 @@
         $password = password_hash($password, PASSWORD_DEFAULT);
 
 
-        $sql = "INSERT INTO `user`(`user_student_id`, `user_name`, `user_email`, `user_password`, `user_sex`, `user_birthday`) VALUES ('$id_student','$full_name','$email','$password','$sex','$birthday')";
+        $sql = "INSERT INTO `user`(`user_student_id`, `user_name`, `user_email`, `user_password`, `user_sex`, `user_birthday`, `user_tel`) VALUES ('$id_student','$full_name','$email','$password','$sex','$birthday', '$tel')";
         $result = mysqli_query($conn, $sql);
 
 

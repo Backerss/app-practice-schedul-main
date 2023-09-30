@@ -8,16 +8,16 @@ $(document).ready(function () {
     $('#reg-submit').click(function () {
         
             var full_name = $('[name=full_name]').val();
-            var email = $('[name=email]').val();
-            var password = $('[name=password]').val();
-            var password_confirmation = $('[name=password_confirmation]').val();
             var id_student = $('[name=id_student]').val();
-            var sex = $('[name=flexRadioDefault]:checked').val();
-            var birth_date = $('[name=birthday]').val();
+            var email = $('[name=user_email]').val();
+            var tel = $('[name=user_tel]').val(); 
+            var birthday = $('[name=user_birthday]').val();
+            var sex = $('[name=user_sex]').val();
+            var password = $('[name=user_password]').val();
+            var password_confirmation = $('[name=user_confirm_password]').val();
 
-            console.log(sex);
 
-            if(full_name == '' || email == '' || password == '' || password_confirmation == '' || birth_date == ""){
+            if(full_name == "" || id_student == "" || email == "" || tel == "" || birthday == "" || sex == "" || password == "" || password_confirmation == ""){
                 Swal.fire({
                     icon: 'error',
                     title: 'Oops...',
@@ -42,11 +42,12 @@ $(document).ready(function () {
                 method: 'POST',
                 data: {
                     full_name: full_name,
-                    email: email,
-                    password: password,
-                    sex: sex,
                     id_student: id_student,
-                    birth_date: birth_date
+                    email: email,
+                    tel: tel,
+                    birthday: birthday,
+                    sex: sex,
+                    password: password,
                 },
                 success: function (data) {
                     if(data == true){
@@ -85,6 +86,7 @@ $(document).ready(function () {
         var password = $('[name=password]').val();
 
 
+
         if(id_student == '' || password == ''){
             Swal.fire({
                 icon: 'error',
@@ -114,8 +116,19 @@ $(document).ready(function () {
                         window.location = './page/home.php';
                     });
                     
-                }else{
-                    console.log(data);
+                }else if(data == "not found"){
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Oops...',
+                        text: 'User not found!',
+                    });
+                }else
+                {
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Oops...',
+                        text: 'none',
+                    });
                 }
             }
         })

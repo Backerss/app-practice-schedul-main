@@ -36,10 +36,11 @@
         else
         {
             echo $data = false;
-        }
-
-
-        
+        }   
+    }
+    else
+    {
+        echo $data = "not found";
     }
 
 ?>

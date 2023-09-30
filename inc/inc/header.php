@@ -29,9 +29,9 @@
               </span>
             </a>
             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
-              <a class="dropdown-item" href="./profile.php">Profile</a>
-              <a class="dropdown-item" href="./setting">Settings</a>
-              <a class="dropdown-item" href="#">Activities</a>
+              <a class="dropdown-item" href="./profile.php">ข้อมูลผู้ใช้</a>
+              <a class="dropdown-item" href="./data_practice.php">ประวัติการฝึก</a>
+              <a class="dropdown-item" href="#">ค้นหา</a>
             </div>
           </li>
         </ul>

@@ -28,82 +28,64 @@
     <title>Home</title>
 </head>
 
-<body class="bg-blue p-fixed">
-    <div class="leyer-1 block-reg">
-        <form action="../inc/reg_inc.php" method="post">
-            <div class="row">
-                <div class="col-lg">
-                    <input class="form-control" type="text" name="full_name"
-                        placeholder="ชื่อ-นามสกุล (Fristname Lastname)">
-                </div>
-            </div>
-            <div class="row mt-2">
-                <div class="col-lg">
-                    <input class="form-control" type="text" name="id_student" placeholder="รหัสนักศึกษา">
-                </div>
-            </div>
+<body class="bg-primary">
+    <div class="container">
+        <div class="row mt-3">
+            <div class="col-lg">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title text-center">REGISTER</h5>
+                        <div class="mb-3">
+                            <label for="full_name" class="form-label">ชื่อนามสกุล</label>
+                            <input type="text" name="full_name" class="form-control" placeholder="ชื่อจริง นามสกุล">
+                        </div>
+                        <div class="mb-3">
+                            <label for="id_student" class="form-label">รหัสนักศึกษา</label>
+                            <input type="text" name="id_student" class="form-control" placeholder="รหัสนักศึกษา">
+                        </div>
+                        <div class="mb-3">
+                            <label for="email" class="form-label">อีเมลล์</label>
+                            <input type="email" name="user_email" class="form-control" placeholder="Email">
+                        </div>
+                        <div class="mb-3">
+                            <label for="email" class="form-label">เบอร์โทรศัพท์</label>
+                            <input type="text" name="user_tel" class="form-control" placeholder="เบอร์โทรศัพท์">
+                        </div>
+                        <div class="mb-3">
+                            <label for="email" class="form-label">Birthday</label>
+                            <input type="date" name="user_birthday" class="form-control" placeholder="Birthday">
+                        </div>
 
-            <div class="row mt-2">
-                <div class="col-lg">
-                    <input class="form-control" type="text" name="email" placeholder="Email(email@gmail.com)">
-                </div>
-            </div>
+                        <div class="mb-3">
+                            <label for="email" class="form-label">เพศ</label>
+                        </div>
+                        <div class="mb-3">
+                            <input class="form-check-input" type="radio" name="user_sex" id="flexRadioDefault1" value="ชาย">
+                            <label class="form-check-label" for="flexRadioDefault1">
+                                ชาย
+                            </label>
 
-            <div class="row mt-2">
-                <div class="col-lg">
-                    <input class="form-control" type="date" name="birthday" placeholder="วันเกิด">
-                </div>
-            </div>
+                            <input class="form-check-input" type="radio" name="user_sex" id="flexRadioDefault1" value="หญิง">
+                            <label class="form-check-label" for="flexRadioDefault1">
+                                หญิง
+                            </label>
+                        </div>
 
-            <div class="row mt-2">
-                <div class="col-lg">
-                    <input class="form-control" type="password" name="password" placeholder="รหัสผ่าน">
-                </div>
-            </div>
-            <div class="row mt-2">
-                <div class="col-lg">
-                    <input class="form-control" type="password" name="password_confirmation"
-                        placeholder="ยืนยันรหัสผ่าน">
-                </div>
-            </div>
-
-            <div class="card mt-2">
-                <div class="card-body">
-                    <p class="card-title">เลือกเพศ</p>
-                    <div class="form-check">
-                        <input class="form-check-input" type="radio" name="flexRadioDefault" value="ชาย" id="flexRadioDefault1">
-                        <label class="form-check-label" for="flexRadioDefault1">
-                            ชาย
-                        </label>
-                    </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="radio" name="flexRadioDefault" value="หญิง" id="flexRadioDefault1">
-                        <label class="form-check-label" for="flexRadioDefault1">
-                            หญิง
-                        </label>
-                    </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="radio" name="flexRadioDefault" value="อื่น ๆ" id="flexRadioDefault1">
-                        <label class="form-check-label" for="flexRadioDefault1">
-                            อื่น ๆ
-                        </label>
+                        <div class="mb-3">
+                            <label for="email" class="form-label">Password</label>
+                            <input type="password" name="user_password" class="form-control" placeholder="Password">
+                        </div>
+                        <div class="mb-3">
+                            <label for="email" class="form-label">Confirm Password</label>
+                            <input type="password" name="user_confirm_password" class="form-control"
+                                placeholder="Confirm Password">
+                        </div>
+                        <hr>
+                        <button class="btn btn-primary w-100" id="reg-submit" type="button">REGISTER</button>
                     </div>
                 </div>
-            </div>
-
-            <a class="link-info" href="#">ข้อตกลง</a>
-
-        </form>
-
-        <div class="row">
-            <div class="col gap-2 col mx-auto mt-3">
-                <button class="btn btn-primary" type="button">ยกเลิก</button>
-            </div>
-            <div class="col gap-2 col mx-auto mt-3">
-                <button class="btn btn-primary" id="reg-submit" type="button">สมัครสมาชิก</button>
             </div>
         </div>
-
     </div>
 </body>
 

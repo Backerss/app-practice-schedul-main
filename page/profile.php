@@ -75,6 +75,68 @@
                     <h3><?php echo $row["user_student_id"] ?></h3>
                 </div>
             </div>
+
+            <div class="row">
+                <div class="col-lg">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">USER</h5>
+                            <p class="card-text">
+                                <div class="row">
+                                    <div class="col-6">
+                                        <p class="card-text">Name</p>
+                                    </div>
+                                    <div class="col-6">
+                                        <p class="card-text"><?php echo $row["user_name"] ?></p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-6">
+                                        <p class="card-text">Student ID</p>
+                                    </div>
+                                    <div class="col-6">
+                                        <p class="card-text"><?php echo $row["user_student_id"] ?></p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-6">
+                                        <p class="card-text">Email</p>
+                                    </div>
+                                    <div class="col-6">
+                                        <p class="card-text"><?php echo $row["user_email"] ?></p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-6">
+                                        <p class="card-text">Birth Day</p>
+                                    </div>
+                                    <div class="col-6">
+                                        <p class="card-text"><?php echo $row["user_birthday"] ?></p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-6">
+                                        <p class="card-text">Register</p>
+                                    </div>
+                                    <div class="col-6">
+                                        <p class="card-text"><?php echo $row["user_register"] ?></p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-6">
+                                        <p class="card-text">Role</p>
+                                    </div>
+                                    <div class="col-6">
+                                        <p class="card-text"><?php echo $row["user_role"] ?></p>
+                                    </div>
+                                </div>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
         </div>
     </main>
 
