@@ -29,43 +29,6 @@
             </li>
         </ul>
         <p class="text-muted nav-heading mt-4 mb-1">
-            <span>PILOT ADMINISTRATION</span>
-        </p>
-        <ul class="navbar-nav flex-fill w-100 mb-2">
-            <li class="nav-item w-100">
-                <a class="nav-link" href="./infomation">
-                    <i class="fa-right fa-duotone fa-square-info fa-xl"></i>
-                    <span class="ml-3 item-text" style="font-weight:400">Infomation</span>
-                </a>
-            </li>
-        </ul>
-
-
-        <p class="text-muted nav-heading mt-4 mb-1">
-            <span>Leaderboard</span>
-        </p>
-        <ul class="navbar-nav flex-fill w-100 mb-2">
-            <li class="nav-item w-100">
-                <a class="nav-link" href="./leaderboard">
-                    <i class="fa-duotone fa-award fa-xl"></i>
-                    <span class="ml-3 item-text" style="font-weight:400">Leaderboard</span>
-                </a>
-            </li>
-        </ul>
-
-        <p class="text-muted nav-heading mt-4 mb-1">
-            <span>Flight Oparetor</span>
-        </p>
-        <ul class="navbar-nav flex-fill w-100 mb-2">
-            <li class="nav-item w-100">
-                <a class="nav-link" href="./flight_plan">
-                    <i class="fa-duotone fa-file-magnifying-glass fa-xl"></i>
-                    <span class="ml-3 item-text" style="font-weight:400">Flight Book</span>
-                </a>
-            </li>
-        </ul>
-
-        <p class="text-muted nav-heading mt-4 mb-1">
             <span>System</span>
         </p>
         <ul class="navbar-nav flex-fill w-100 mb-2">

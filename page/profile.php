@@ -20,6 +20,7 @@
         $_SESSION['user_status'] = "Not Active";
     else
         $_SESSION['user_status'] = "Active";
+    
 
 ?>
 
