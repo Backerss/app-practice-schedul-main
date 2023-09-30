@@ -15,6 +15,12 @@
     $row = mysqli_fetch_assoc($result);
 
 
+
+    if($row["user_status"] == 0)
+        $_SESSION['user_status'] = "Not Active";
+    else
+        $_SESSION['user_status'] = "Active";
+
 ?>
 
 
@@ -65,7 +71,7 @@
             <div class="row">
                 <div class="col-12 text-center">
                     <div class="avatar avatar-xl">
-                        <img src="../assets/avatars/face-1.jpg" class="avatar-img rounded-circle">
+                        <img src="../assets/avatars/user_profile_none.png" class="avatar-img rounded-circle">
                     </div>
                 </div>
             </div>
@@ -130,7 +136,30 @@
                                         <p class="card-text"><?php echo $row["user_role"] ?></p>
                                     </div>
                                 </div>
+                                <div class="row">
+                                    <div class="col-6">
+                                        <p class="card-text">Status</p>
+                                    </div>
+                                    <div class="col-6">
+                                        <?php if($row["user_status"] == 0) { ?>
+                                        <p class="card-text text-danger"><?php echo $_SESSION['user_status'] ?></p>
+                                        <?php } else { ?>
+                                        <p class="card-text text-success"><?php echo $_SESSION['user_status'] ?></p>
+                                        <?php } ?>
+                                    </div>
+                                </div>
                             </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row mt-3">
+                <div class="col-lg">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">STAFF COMMENT</h5>
+                            <p class="card-text"><?php echo $row["user_note"] ?></p>
                         </div>
                     </div>
                 </div>
