@@ -136,5 +136,135 @@ $(document).ready(function () {
 
 
 });
-
 //check login
+
+
+//add - schedule
+$(document).ready(function () {
+
+    $('#add-schedule').click(function () {
+
+        var date_start = $('[name=date_start]').val();
+        var time_start = $('[name=time_start]').val();
+        var time_end = $('[name=time_end]').val();
+        var s_deteil = $('[name=s_deteil]').val();
+        var s_note = $('[name=s_note]').val();
+
+        if(date_start == "" || time_start == "" || time_end == "" || s_deteil == "" || s_note == ""){
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'Please fill all fields!',
+            });
+            return false;
+        }
+
+
+        //get time now
+        var d = new Date();
+        var time_now = d.getHours() + ":" + d.getMinutes();
+        var date_now = d.getFullYear() + "-" + (d.getMonth() + 1) + "-" + d.getDate();
+
+
+        //split date
+        var date_start_split = date_start.split("-");
+        
+        if(date_start_split[0] < d.getFullYear()){
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'Please select date again!',
+            });
+            return false;
+        }
+        else if(date_start_split[0] == d.getFullYear() && date_start_split[1] < (d.getMonth() + 1)){
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'Please select date again!',
+            });
+            return false;
+        }
+        else if(date_start_split[0] == d.getFullYear() && date_start_split[1] == (d.getMonth() + 1) && date_start_split[2] < d.getDate()){
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'Please select date again!',
+            });
+            return false;
+        }
+
+
+
+        if(time_start < time_now){
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'Please select time again!',
+            });
+            return false;
+        }
+
+
+        if(date_start == date_now && time_start < time_now){
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'Please select time again!',
+            });
+            return false;
+        }
+
+
+
+        $.ajax({
+            url: '../../inc/auth/schedule_system.php',
+            method: 'POST',
+            data: {
+                type: 'add',
+                date_start: date_start,
+                time_start: time_start,
+                time_end: time_end,
+                s_deteil: s_deteil,
+                s_note: s_note
+            },
+            success: function (data) {
+                if(data == true){
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Success',
+                        text: 'Add Schedule Successful!',
+                        comfirmButtonText: 'Ok'
+                    }).then(function () {
+                        //window.location = '../page/home.php';
+                    });
+                    
+                }else if(data == "date and time have in database")
+                {
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Oops...',
+                        text: 'Date and Time have in database!',
+                    });
+                }
+                else
+                {
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Oops...',
+                        text: 'none',
+                    });
+
+                    console.log(data);
+                }
+            }
+        });
+
+
+
+
+
+    });
+
+
+});

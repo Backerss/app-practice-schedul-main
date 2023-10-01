@@ -76,16 +76,25 @@
             <hr>
             <div class="row">
 
-              <?php for($i = 0; $i < 10; $i++): ?>
-              <div class="col-12 mt-2">
-                  <div class="card">
-                    <div class="card-body">
-                      <h5 class="card-title"><?php echo $i ?></h5>
-                      <p class="card-text">Content</p>
+                <?php
+
+
+                    $sql = "SELECT * FROM schedul";
+                    $result = mysqli_query($conn, $sql);
+
+
+                    while($row = mysqli_fetch_assoc($result)){
+                        
+                ?>
+                    <div class="col-12 mt-2">
+                        <div class="card">
+                            <div class="card-body">
+                            <h5 class="card-title"><?php echo $row["S_deteil"] ?></h5>
+                            <p class="card-text">Content</p>
+                            </div>
+                        </div>
                     </div>
-                  </div>
-              </div>
-              <?php endfor; ?>
+                <?php } ?>
             </div>
             
         </div>

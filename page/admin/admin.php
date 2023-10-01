@@ -173,7 +173,7 @@
                             <textarea type="text" name="s_note" class="form-control"></textarea>
                         </div>
 
-                        <button class="btn btn-primary w-100" type="button">เพิ่ม</button>
+                        <button class="btn btn-primary w-100" id="add-schedule" type="button">เพิ่ม</button>
                     </div>
                 </div>
             </div>
@@ -196,6 +196,7 @@
 <script src="../../assets/js/apps.js"></script>
 <script src='../../assets/js/jquery.dataTables.min.js'></script>
 <script src='../../assets/js/dataTables.bootstrap4.min.js'></script>
+<script src="../../js/main.js"></script>
 
 
 <script>
