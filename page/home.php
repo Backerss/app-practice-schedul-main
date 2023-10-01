@@ -5,7 +5,16 @@
     require_once '../inc/db.php';
 
     if(!isset($_SESSION['user_id_db']))
-      header("Location: ../index.php");
+      header("Location: ../../index.php");
+
+    
+
+    $sql = "SELECT * FROM user WHERE ID = '".$_SESSION['user_id_db']."'";
+    $result = mysqli_query($conn, $sql);
+
+    $row = mysqli_fetch_assoc($result);
+
+
 ?>
 
 

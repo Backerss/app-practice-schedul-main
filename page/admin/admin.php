@@ -146,6 +146,39 @@
                 </div>
             </div>
         </div>
+
+        <div class="row mt-3">
+            <div class="col-lg">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">เพิ่มตารางซ้อม</h5>
+                        <div class="mb-3">
+                            <label class="form-label">วันที่ (ซ้อม)</label>
+                            <input name="date_start" type="date" class="form-control">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">เวลาเริ่ม (ซ้อม)</label>
+                            <input name="time_start" type="time" class="form-control">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">เวลาสิ้นสุด (ซ้อม)</label>
+                            <input name="time_end" type="time" class="form-control">
+                        </div>
+                        <div class="mb-3">
+                            <label for="" class="form-label">รายละเอียดการซ้อม</label>
+                            <textarea type="text" name="s_deteil" class="form-control"> </textarea>
+                        </div>
+                        <div class="mb-3">
+                            <label for="" class="form-label">note</label>
+                            <textarea type="text" name="s_note" class="form-control"></textarea>
+                        </div>
+
+                        <button class="btn btn-primary w-100" type="button">เพิ่ม</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
     </main>
 
 </body>
