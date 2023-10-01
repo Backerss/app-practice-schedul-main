@@ -90,7 +90,8 @@
                         <div class="card">
                             <div class="card-body">
                             <h5 class="card-title"><?php echo $row["S_deteil"] ?></h5>
-                            <p class="card-text">Content</p>
+                            <h6 class="card-subtitle mb-2 text-muted"><?php echo $row["S_date"] ?> <?php echo $row["S_time"] ?></h6>
+                            <p class="card-text"><?php echo $row["S_deteil"] ?></p>
                             </div>
                         </div>
                     </div>

@@ -153,6 +153,10 @@
                     <div class="card-body">
                         <h5 class="card-title">เพิ่มตารางซ้อม</h5>
                         <div class="mb-3">
+                            <label for="" class="form-label">หัวข้อการซ้อม</label>
+                            <input name="s_deteil" type="text" class="form-control">
+                        </div>
+                        <div class="mb-3">
                             <label class="form-label">วันที่ (ซ้อม)</label>
                             <input name="date_start" type="date" class="form-control">
                         </div>
@@ -163,10 +167,6 @@
                         <div class="mb-3">
                             <label class="form-label">เวลาสิ้นสุด (ซ้อม)</label>
                             <input name="time_end" type="time" class="form-control">
-                        </div>
-                        <div class="mb-3">
-                            <label for="" class="form-label">รายละเอียดการซ้อม</label>
-                            <textarea type="text" name="s_deteil" class="form-control"> </textarea>
                         </div>
                         <div class="mb-3">
                             <label for="" class="form-label">note</label>
