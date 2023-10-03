@@ -268,3 +268,32 @@ $(document).ready(function () {
 
 
 });
+
+//view - schedule
+$(document).ready(function () {
+
+    $('#card_view_click').click(function () {
+
+        var id = $(this).attr('data-id');
+
+        
+        $.ajax({
+            url: '../inc/auth/schedule_system.php',
+            method: 'POST',
+            data: {
+                type: 'view',
+                id: id
+            },
+            success: function (data) {
+                
+                var data = JSON.parse(data);
+                
+                $('[name=s_name]').text(data.S_deteil);
+            }
+        });
+    
+    });
+
+
+
+});

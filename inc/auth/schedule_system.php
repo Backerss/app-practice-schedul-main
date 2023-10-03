@@ -45,6 +45,16 @@
             echo $data = "not admin";
         }
     }
+    else if($type == "view")
+    {
+        $id = $_POST['id'];
+
+        $sql = "SELECT * FROM schedul WHERE ID = '$id'";
+        $result = mysqli_query($conn, $sql);
+        $row = mysqli_fetch_assoc($result);
+
+        echo $data = json_encode($row);
+    }
 
 
 
