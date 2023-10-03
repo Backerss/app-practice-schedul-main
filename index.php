@@ -14,40 +14,57 @@
 
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <link rel="stylesheet" href="css/custom.css" />
+    <link rel="stylesheet" href="css/login.css">
 
     <title>APP</title>
 </head>
 
-<body class="bg-primary">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg">
-                <div class="card card-center">
-                    <div class="card-body">
-                        <h5 class="card-title text-center">LOGIN</h5>
-                        <hr>
+<div class="limiter">
+		<div class="container-login100">
+			<div class="wrap-login100">
+				<div class="login100-form-title" style="background-image: url(https://www.dhresource.com/webp/m/0x0/f2/albu/g8/M01/09/15/rBVaV134wXeAbpSWAAGSRCchfVU436.jpg);">
+					<span class="login100-form-title-1">
+						Sign In
+					</span>
+				</div>
 
-                          <div class="mb-3">
-                            <label for="" class="form-label">รหัสนักศึกษา</label>
-                            <input type="text" class="form-control" id=""
-                                placeholder="หัสนักศึกษา" name="id_student">
-                          </div>
-                          <div class="mb-3">
-                            <label for="" class="form-label">รหัสผ่าน</label>
-                            <input type="password" class="form-control" id=""
-                                placeholder="รหัสผ่าน" name="password">
-                          </div>
-                          <hr>
-                          <a href="page/register.php">Register</a>
-                          <div class="mb-3 mt-1">
-                            <button class="btn btn-primary w-100" id="submit_login">LOGIN</button>
-                          </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</body>
+				<div class="login100-form validate-form">
+					<div class="wrap-input100 validate-input m-b-26" data-validate="Username is required">
+						<span class="label-input100">Username</span>
+						<input class="input100" type="text" name="id_student" placeholder="Enter username">
+						<span class="focus-input100"></span>
+					</div>
+
+					<div class="wrap-input100 validate-input m-b-18" data-validate = "Password is required">
+						<span class="label-input100">Password</span>
+						<input class="input100" type="password" name="password" placeholder="Enter password">
+						<span class="focus-input100"></span>
+					</div>
+
+					<div class="flex-sb-m w-full p-b-30">
+						<div class="contact100-form-checkbox">
+							<input class="input-checkbox100" id="ckb1" type="checkbox" name="remember-me">
+							<label class="label-checkbox100" for="ckb1">
+								Remember me
+							</label>
+						</div>
+
+						<div>
+							<a href="#" class="txt1">
+								Forgot Password?
+							</a>
+						</div>
+					</div>
+
+					<div class="container-login100-form-btn">
+						<button class="login100-form-btn" id="submit_login">
+							Login
+						</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
     integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous">
@@ -56,5 +73,5 @@
     integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous">
 </script>
 <script src="js/main.js"></script>
-
+<script src="js/login.js"></script>
 </html>
