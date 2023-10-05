@@ -291,28 +291,33 @@ $(document).ready(function () {
 //view - schedule
 $(document).ready(function () {
 
-    $('#card_view_click').click(function () {
 
-        var id = $(this).attr('data-id');
+    $(this).on('click', '.card', function () {
 
-        
-        $.ajax({
-            url: '../inc/auth/schedule_system.php',
-            method: 'POST',
-            data: {
-                type: 'view',
-                id: id
-            },
-            success: function (data) {
-                
-                var data = JSON.parse(data);
-                
-                $('[name=s_name]').text(data.S_deteil);
-            }
-        });
+       //check data-bs-toggle="modal"
+        var data_bs_toggle = $(this).attr('data-bs-target');
+
+        if(data_bs_toggle == "#card-view-s"){
+
+            //card-title 
+            var card_title = $(this).find('.card-title').text();
+            $.ajax({
+                url: '../inc/auth/schedule_system.php',
+                method: 'POST',
+                data: {
+                    type: 'view',
+                    name: card_title
+                },
+                success: function (data) {
+                    
+                    var data = JSON.parse(data);
+                    
+                    $('[name=s_name]').text(data.S_deteil);
+                }
+            });
+
+        }
     
     });
-
-
 
 });

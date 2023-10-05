@@ -92,10 +92,15 @@
 
 
                     while($row = mysqli_fetch_assoc($result)){
+
+                        $row["S_date"] = date("Y-m-d", strtotime($row["S_date"]));
+
+                        if($row["S_date"] <= $date)
+                            continue;
                         
                 ?>
                 <div class="col-12 mt-2">
-                    <div class="card" data-id="<?php echo $row["ID"] ?>" data-bs-toggle="modal" id="card_view_click" data-bs-target="#card-view-s">
+                    <div class="card" data-bs-toggle="modal" data-bs-target="#card-view-s">
                         <div class="card-body">
                             <h5 class="card-title"><?php echo $row["S_deteil"] ?></h5>
                             <h6 class="card-subtitle mb-2 text-muted"><?php echo $row["S_date"] ?>

@@ -47,9 +47,9 @@
     }
     else if($type == "view")
     {
-        $id = $_POST['id'];
+        $name = $_POST['name'];
 
-        $sql = "SELECT * FROM schedul WHERE ID = '$id'";
+        $sql = "SELECT * FROM schedul WHERE S_deteil = '$name'";
         $result = mysqli_query($conn, $sql);
         $row = mysqli_fetch_assoc($result);
 
