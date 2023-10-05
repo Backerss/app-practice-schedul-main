@@ -311,8 +311,16 @@ $(document).ready(function () {
                 success: function (data) {
                     
                     var data = JSON.parse(data);
+
+                    //set S_time - S_endtime
+                    var time = data.S_time + " - " + data.S_endtime;
+
+                    
                     
                     $('[name=s_name]').text(data.S_deteil);
+                    $('[name=s_date]').text(data.S_date);
+                    $('[name=s_time]').text(data.S_time + " - " + data.S_endtime);
+                    $('[name=s_note]').text(data.S_note);
                 }
             });
 

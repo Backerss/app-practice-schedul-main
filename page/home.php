@@ -129,6 +129,9 @@
                 <div class="row">
                     <div class="col-lg">
                         <h5 name="s_name"></h5>
+                        <p name="s_date" class="d-inline"></p> <p class="d-inline" name="s_time"></p>
+                        <hr>
+                        <p name="s_note"></p>
                     </div>
                 </div>
             </div>
