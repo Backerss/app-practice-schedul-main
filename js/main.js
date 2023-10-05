@@ -1,5 +1,25 @@
 
 
+//
+$(document).ready(function () {
+
+
+    // Function to update time
+    function updateTime() {
+        var d = new Date();
+        var time = d.getHours() + ":" + d.getMinutes() + ":" + d.getSeconds();
+        var date = d.getFullYear() + "-" + (d.getMonth() + 1) + "-" + d.getDate();
+
+        $('#_gettime').text(time);
+    }
+
+    // Initial update
+    updateTime();
+
+    // Update time every second (1000 milliseconds)
+    setInterval(updateTime, 1000);
+
+});
 //check register
 $(document).ready(function () {
 
@@ -194,24 +214,23 @@ $(document).ready(function () {
             return false;
         }
 
-
-
-        if(time_start < time_now){
-            Swal.fire({
-                icon: 'error',
-                title: 'Oops...',
-                text: 'Please select time again!',
-            });
-            return false;
-        }
-
-
         if(date_start == date_now && time_start < time_now){
             Swal.fire({
                 icon: 'error',
                 title: 'Oops...',
                 text: 'Please select time again!',
             });
+
+            console.log("DATE" + date_start + " " + date_now + " " + time_start + " " + time_now);
+            return false;
+        }
+        else if(date_start != date_now && time_start > time_end){
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'Please select time again!',
+            });
+            console.log("TIME" + date_start + " " + date_now + " " + time_start + " " + time_now);
             return false;
         }
 

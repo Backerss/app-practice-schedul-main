@@ -15,6 +15,10 @@
     $row = mysqli_fetch_assoc($result);
 
 
+
+    //get date
+    $date = date("Y-m-d");
+
 ?>
 
 
@@ -71,12 +75,13 @@
                             <span class="input-group-text" id="basic-addon1"><i
                                     class="fa-sharp fa-solid fa-folder-magnifying-glass"></i></span>
                         </div>
-                        <input type="text" class="form-control" placeholder="Username" aria-label="Username"
+                        <input type="text" class="form-control" placeholder="คนห้า" aria-label="Username"
                             aria-describedby="basic-addon1">
                     </div>
                 </div>
             </div>
             <hr>
+            <h5 class="d-inline">วันที่: <?php echo $date ?> : <p class="d-inline" id="_gettime"></p> </h5>
             <div class="row">
 
                 <?php
