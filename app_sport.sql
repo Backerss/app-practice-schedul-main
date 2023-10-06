@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 30, 2023 at 08:37 PM
+-- Generation Time: Oct 06, 2023 at 10:06 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -37,6 +37,16 @@ CREATE TABLE `schedul` (
   `S_note` varchar(120) NOT NULL DEFAULT 'None'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Dumping data for table `schedul`
+--
+
+INSERT INTO `schedul` (`ID`, `S_date`, `S_time`, `S_endtime`, `S_deteil`, `S_owner`, `S_note`) VALUES
+(1, '2023-10-06', '15:00:00', '17:00:00', 'ทำหนมๆๆๆ', 1, 'เตะพี่เจี่ย ทะลุปลาบ '),
+(2, '2023-10-13', '13:50:00', '15:30:00', 'KIKIKKIKI', 1, 'DFASFSFASFASFAFASFASFASFASFSCASCASFASCFASFCASCA'),
+(3, '2023-10-06', '13:30:00', '15:00:00', 'เตะไอ้ฟลุ๊ค', 1, 'เดินไปหาคนชื่อ พิรัชชัย แล้วเตะ พร้อมบอกว่า บีฝากมาก'),
+(4, '2023-10-06', '14:30:00', '15:00:00', 'วิ่ง', 1, 'วิ่ง');
+
 -- --------------------------------------------------------
 
 --
@@ -55,8 +65,17 @@ CREATE TABLE `user` (
   `user_tel` varchar(10) NOT NULL DEFAULT 'None',
   `user_register` datetime NOT NULL DEFAULT current_timestamp(),
   `user_note` varchar(120) NOT NULL DEFAULT 'None',
-  `user_status` int(11) NOT NULL DEFAULT 1
+  `user_status` int(11) NOT NULL DEFAULT 1,
+  `user_img` text NOT NULL DEFAULT 'None'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `user`
+--
+
+INSERT INTO `user` (`ID`, `user_student_id`, `user_name`, `user_email`, `user_password`, `user_sex`, `user_birthday`, `user_role`, `user_tel`, `user_register`, `user_note`, `user_status`, `user_img`) VALUES
+(1, '65111822005', 'อาสาฬ รอดนวน', 'asan.r@nsru.ac.th', '$2y$10$/lgNACU4b52pw9E.1ef6qOIrOHBP.6mcwnuBjzx9HUNwS7QHOBRX2', 'ชาย', '2003-07-13', 'Admin', '0622647041', '2023-10-06 13:17:47', 'None', 1, './../img/profile_ul/profile_img_1.png'),
+(2, '65111822004', 'Theerapong', 'theerapong.t@nsru', '$2y$10$l8cPHDZuWR6G.dv5fCDHIux88aPWj88ilC2sMr/yo..zfvOhfN.N6', 'ชาย', '2003-12-03', 'None', '0956386360', '2023-10-06 13:26:18', 'None', 1, 'None');
 
 --
 -- Indexes for dumped tables
@@ -82,13 +101,13 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `schedul`
 --
 ALTER TABLE `schedul`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
