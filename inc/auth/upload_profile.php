@@ -21,7 +21,7 @@
 
     file_put_contents($filename, $file_data);
 
-    $link = "./../img/profile_ul/" . "profile_img_". $_SESSION["user_id_db"] . ".png";
+    $link = "/app-practice/img/profile_ul/" . "profile_img_". $_SESSION["user_id_db"] . ".png";
     $sql = "UPDATE user SET user_img = '$link' WHERE ID = '$id_student'";
     $result = mysqli_query($conn, $sql);
 

@@ -30,7 +30,7 @@
               </span>
             </a>
             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
-              <a class="dropdown-item" href="./profile.php">ข้อมูลผู้ใช้</a>
+              <a class="dropdown-item" href="/app-practice/page/profile.php">ข้อมูลผู้ใช้</a>
               <a class="dropdown-item" href="./data_practice.php">ประวัติการฝึก</a>
               <?php if($row["user_role"] == "Admin"){ ?>
                 <a class="dropdown-item" href="./admin/admin.php">ผู้ดูแลระบบ</a>

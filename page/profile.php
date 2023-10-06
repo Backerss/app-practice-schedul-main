@@ -15,6 +15,10 @@
     $row = mysqli_fetch_assoc($result);
 
 
+    if($row["user_img"] == "None")
+        $row["user_img"] = "../assets/avatars/user_profile_none.png";
+
+
 
     if($row["user_status"] == 0)
         $_SESSION['user_status'] = "Not Active";

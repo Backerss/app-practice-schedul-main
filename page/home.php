@@ -14,6 +14,9 @@
 
     $row = mysqli_fetch_assoc($result);
 
+    if($row["user_img"] == "None")
+        $row["user_img"] = "../assets/avatars/user_profile_none.png";
+
 
 
     //get date
