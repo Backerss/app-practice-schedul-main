@@ -72,7 +72,10 @@
             <div class="row">
                 <div class="col-12 text-center">
                     <div class="avatar avatar-xl">
-                        <img src="../assets/avatars/user_profile_none.png" class="avatar-img rounded-circle">
+                        <label for="file-upload" class="avatar-img rounded-circle">
+                            <img src="<?php echo $row["user_img"] ?>" id="pro-file-ch" class="avatar-img rounded-circle">
+                            <input type="file" id="file-upload" style="display: none;" accept="image/*">
+                        </label>
                     </div>
                 </div>
             </div>
@@ -89,66 +92,66 @@
                         <div class="card-body">
                             <h5 class="card-title">USER</h5>
                             <p class="card-text">
-                                <div class="row">
-                                    <div class="col-6">
-                                        <p class="card-text">Name</p>
-                                    </div>
-                                    <div class="col-6">
-                                        <p class="card-text"><?php echo $row["user_name"] ?></p>
-                                    </div>
+                            <div class="row">
+                                <div class="col-6">
+                                    <p class="card-text">Name</p>
                                 </div>
-                                <div class="row">
-                                    <div class="col-6">
-                                        <p class="card-text">Student ID</p>
-                                    </div>
-                                    <div class="col-6">
-                                        <p class="card-text"><?php echo $row["user_student_id"] ?></p>
-                                    </div>
+                                <div class="col-6">
+                                    <p class="card-text"><?php echo $row["user_name"] ?></p>
                                 </div>
-                                <div class="row">
-                                    <div class="col-6">
-                                        <p class="card-text">Email</p>
-                                    </div>
-                                    <div class="col-6">
-                                        <p class="card-text"><?php echo $row["user_email"] ?></p>
-                                    </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-6">
+                                    <p class="card-text">Student ID</p>
                                 </div>
-                                <div class="row">
-                                    <div class="col-6">
-                                        <p class="card-text">Birth Day</p>
-                                    </div>
-                                    <div class="col-6">
-                                        <p class="card-text"><?php echo $row["user_birthday"] ?></p>
-                                    </div>
+                                <div class="col-6">
+                                    <p class="card-text"><?php echo $row["user_student_id"] ?></p>
                                 </div>
-                                <div class="row">
-                                    <div class="col-6">
-                                        <p class="card-text">Register</p>
-                                    </div>
-                                    <div class="col-6">
-                                        <p class="card-text"><?php echo $row["user_register"] ?></p>
-                                    </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-6">
+                                    <p class="card-text">Email</p>
                                 </div>
-                                <div class="row">
-                                    <div class="col-6">
-                                        <p class="card-text">Role</p>
-                                    </div>
-                                    <div class="col-6">
-                                        <p class="card-text"><?php echo $row["user_role"] ?></p>
-                                    </div>
+                                <div class="col-6">
+                                    <p class="card-text"><?php echo $row["user_email"] ?></p>
                                 </div>
-                                <div class="row">
-                                    <div class="col-6">
-                                        <p class="card-text">Status</p>
-                                    </div>
-                                    <div class="col-6">
-                                        <?php if($row["user_status"] == 0) { ?>
-                                        <p class="card-text text-danger"><?php echo $_SESSION['user_status'] ?></p>
-                                        <?php } else { ?>
-                                        <p class="card-text text-success"><?php echo $_SESSION['user_status'] ?></p>
-                                        <?php } ?>
-                                    </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-6">
+                                    <p class="card-text">Birth Day</p>
                                 </div>
+                                <div class="col-6">
+                                    <p class="card-text"><?php echo $row["user_birthday"] ?></p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-6">
+                                    <p class="card-text">Register</p>
+                                </div>
+                                <div class="col-6">
+                                    <p class="card-text"><?php echo $row["user_register"] ?></p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-6">
+                                    <p class="card-text">Role</p>
+                                </div>
+                                <div class="col-6">
+                                    <p class="card-text"><?php echo $row["user_role"] ?></p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-6">
+                                    <p class="card-text">Status</p>
+                                </div>
+                                <div class="col-6">
+                                    <?php if($row["user_status"] == 0) { ?>
+                                    <p class="card-text text-danger"><?php echo $_SESSION['user_status'] ?></p>
+                                    <?php } else { ?>
+                                    <p class="card-text text-success"><?php echo $_SESSION['user_status'] ?></p>
+                                    <?php } ?>
+                                </div>
+                            </div>
                             </p>
                         </div>
                     </div>
@@ -185,5 +188,6 @@
 <script src="../assets/js/apps.js"></script>
 <script src='../assets/js/jquery.dataTables.min.js'></script>
 <script src='../assets/js/dataTables.bootstrap4.min.js'></script>
+<script src="../js/main.js"></script>
 
 </html>

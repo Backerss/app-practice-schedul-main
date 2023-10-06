@@ -95,7 +95,7 @@
 
                         $row["S_date"] = date("Y-m-d", strtotime($row["S_date"]));
 
-                        if($row["S_date"] <= $date)
+                        if($row["S_date"] < $date)
                             continue;
                         
                 ?>

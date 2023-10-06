@@ -329,3 +329,101 @@ $(document).ready(function () {
     });
 
 });
+
+//when file-upload complete
+$(document).ready(function () {
+
+    $('#file-upload').on('change', function() {
+        var file = this.files[0];
+        var fileType = file["type"];
+        var img_url;
+
+        if(fileType == "image/jpeg" || fileType == "image/png"){
+            var reader = new FileReader();
+            reader.onload = function () {
+                img_url = reader.result;
+                $('#img-preview').attr('src', img_url);
+            }
+            reader.readAsDataURL(file);
+        }
+
+        //size file > 2MB
+        if(file.size > 5000000){
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'File size is too large!',
+            });
+            return false;
+        }
+
+
+        reader.onloadend = function () {
+            var tempImg = new Image();
+            tempImg.src = reader.result;
+            tempImg.onload = function () {
+                var MAX_WIDTH = 200;
+                var MAX_HEIGHT = 200;
+                var tempW = tempImg.width;
+                var tempH = tempImg.height;
+                if (tempW > tempH) {
+                    if (tempW > MAX_WIDTH) {
+                        tempH *= MAX_WIDTH / tempW;
+                        tempW = MAX_WIDTH;
+                    }
+                } else {
+                    if (tempH > MAX_HEIGHT) {
+                        tempW *= MAX_HEIGHT / tempH;
+                        tempH = MAX_HEIGHT;
+                    }
+                }
+
+                var canvas = document.createElement('canvas');
+                canvas.width = tempW;
+                canvas.height = tempH;
+                var ctx = canvas.getContext("2d");
+                ctx.drawImage(this, 0, 0, tempW, tempH);
+                var dataURL = canvas.toDataURL("image/png");
+                $("#pro-file-ch").attr("src", dataURL);
+
+                
+
+
+                $.ajax({
+                    url: '../inc/auth/upload_profile.php',
+                    method: 'POST',
+                    data: {
+                        img: dataURL
+                    },
+                    success: function (data) {
+                        if(data == true){
+                            Swal.fire({
+                                icon: 'success',
+                                title: 'Success',
+                                text: 'Upload Successful!',
+                            })
+                            
+                        }else
+                        {
+                            Swal.fire({
+                                icon: 'error',
+                                title: 'Oops...',
+                                text: 'none',
+                            });
+        
+                            console.log(data);
+                        }
+                    }
+                });
+
+            }
+        }
+
+
+        
+
+
+
+    });
+
+});
