@@ -27,6 +27,14 @@
                     <span class="ml-3 item-text" style="font-weight:400">Deahboard</span>
                 </a>
             </li>
+            <?php if($row["user_role"] == "Admin") { ?>
+            <li class="nav-item w-100">
+                <a class="nav-link" href="/app-practice/page/trainer.php">
+                <i class="fa-solid fa-user-gear fa-xl"></i>
+                    <span class="ml-3 item-text" style="font-weight:400">ผู้ฝึกซ้อม</span>
+                </a>
+            </li>
+            <?php } ?>
         </ul>
         <p class="text-muted nav-heading mt-4 mb-1">
             <span>System</span>
