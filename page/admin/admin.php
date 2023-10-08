@@ -50,6 +50,7 @@
     <link rel="stylesheet" href="../../assets/css/app-light.css" id="lightTheme">
     <link rel="stylesheet" href="../../assets/css/app-dark.css" id="darkTheme" disabled>
     <link rel="stylesheet" href="../../assets/css/custom.css">
+
     <title>ADMIN</title>
 </head>
 
@@ -172,7 +173,7 @@
                             <label for="" class="form-label">note</label>
                             <textarea type="text" name="s_note" class="form-control"></textarea>
                         </div>
-
+                    
                         <button class="btn btn-primary w-100" id="add-schedule" type="button">เพิ่ม</button>
                     </div>
                 </div>

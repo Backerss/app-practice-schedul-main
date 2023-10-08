@@ -79,7 +79,7 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-lg">
-                    <h5>สวัสดีคุณ, <?php echo $row["user_name"] ?></h5>
+                    <h5>สวัสดีคุณ <?php echo $row["user_role"] ?>, <?php echo $row["user_name"] ?></h5>
                 </div>
             </div>
             <div class="row">
@@ -173,6 +173,7 @@
                                         <th>วันที่ซ้อม</th>
                                         <th>เวลาที่ซ้อม</th>
                                         <th>ผู้ฝึกซ้อม</th>
+                                        <th>QRCODE</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -202,6 +203,7 @@
                                         <td><?php echo $row["S_date"] ?></td>
                                         <td><?php echo $row["S_time"] ?></td>
                                         <td><?php echo $row["S_owner"] ?></td>
+                                        <td><img class="img-fluid" src="<?php echo $row["S_qrcode"] ?>" alt=""></td>
                                     </tr>
                                     <?php } ?>
                                     <?php

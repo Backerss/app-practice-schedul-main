@@ -234,8 +234,6 @@ $(document).ready(function () {
             return false;
         }
 
-
-
         $.ajax({
             url: '../../inc/auth/schedule_system.php',
             method: 'POST',
@@ -264,6 +262,14 @@ $(document).ready(function () {
                         icon: 'error',
                         title: 'Oops...',
                         text: 'Date and Time have in database!',
+                    });
+                }
+                else if(data == "deteil have in database")
+                {
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Oops...',
+                        text: 'Deteil have in database!',
                     });
                 }
                 else
