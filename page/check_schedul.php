@@ -4,10 +4,16 @@
 
     require_once '../inc/db.php';
 
-    if(!isset($_SESSION['user_id_db']))
-      header("Location: ../../index.php");
 
-    
+    $id = $_GET["c_check_id"];
+
+
+    if(!isset($id))
+        header("Location: /app-practice/page/home.php");
+
+
+    if(!isset($_SESSION['user_id_db']))
+      header("Location: ../../index.php");    
 
     $sql = "SELECT * FROM user WHERE ID = '".$_SESSION['user_id_db']."'";
     $result = mysqli_query($conn, $sql);
@@ -22,8 +28,9 @@
     //get date
     $date = date("Y-m-d");
 
-?>
 
+
+?>
 
 
 
@@ -75,86 +82,46 @@
     <main role="main" class="main-content">
         <div class="container-fluid">
             <div class="row">
-                <div class="col-12">
-                    <div class="input-group mb-3">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text" id="basic-addon1"><i
-                                    class="fa-sharp fa-solid fa-folder-magnifying-glass"></i></span>
-                        </div>
-                        <input type="text" class="form-control" placeholder="คนห้า" aria-label="Username"
-                            aria-describedby="basic-addon1">
-                    </div>
+                <div class="col-lg text-center">
+                    <?php
+
+                            $sql = "SELECT * FROM schedul WHERE ID = '$id'";
+                            $result = mysqli_query($conn, $sql);
+
+                            $row = mysqli_fetch_assoc($result);
+                    
+                    ?>
+
+                    <h3><?php echo $row["S_deteil"] ?></h3>
+                    <h5><?php echo $row["S_date"] ?> : <?php echo $row["S_time"] ?></h5>
+                    <input type="text" class="d-none" name="check_id" value="<?php echo $id ?>">
                 </div>
             </div>
-            <hr>
-            <h5 class="d-inline">วันที่: <?php echo $date ?> : <p class="d-inline" id="_gettime"></p>
-            </h5>
             <div class="row">
-
-                <?php
-                $sql = "SELECT * FROM schedul ORDER BY S_date, S_time";
-                $result = mysqli_query($conn, $sql);
-
-                while ($row = mysqli_fetch_assoc($result)) {
-                    $row["S_date"] = date("Y-m-d", strtotime($row["S_date"]));
-
-                    if ($row["S_date"] < $date) {
-                        continue;
-                    }
-
-                    // Sort date time
-                    $row["S_time"] = date("H:i", strtotime($row["S_time"]));
-                    $row["S_endtime"] = date("H:i", strtotime($row["S_endtime"]));
-                    $row["S_date"] = date("d/m/Y", strtotime($row["S_date"]));
-                ?>
-                <!-- Your HTML/PHP code for displaying the sorted data -->
-                <div class="col-12 mt-2">
-                    <div class="card" data-bs-toggle="modal" data-bs-target="#card-view-s">
+                <div class="col-lg">
+                    <div class="card">
                         <div class="card-body">
-                            <h5 class="card-title"><?php echo $row["S_deteil"] ?></h5>
-                            <h6 class="card-subtitle mb-2 text-muted"><?php echo $row["S_date"] ?>
-                                <?php echo $row["S_time"] ?></h6>
-                            <p class="card-text"><?php echo $row["S_note"] ?></p>
+                            <h5 class="card-title">ข้อควรเช็คชื่อ</h5>
+                            <p class="card-text">
+                                <p>1.เช็คชื่อสายได้ไม่เกิน 30 นาที จากเวลาที่ตั้ง ถ้าเลยกำหนดไม่สามารถเช็คได้ </p>
+                                <p>2.ระยะเช็คชื่อ ไม่เกิน 100 เมตร จากจุดเช็คชื่อ</p>
+                                <p>3.ระบบมีการเก็บข้อมูลตำแหน่งไม่สามารถ เซฟ หรือ เช็คชื่อเกิน 100 เมตรได้</p>
+                                <p>4.ถ้านักศึกษาเข้าเรียนไม่ได้ ให้แจ้งครูผู้สอน</p>
+                            </p>
                         </div>
                     </div>
                 </div>
-                <?php
-                }
-            ?>
-
             </div>
 
+            <div class="row">
+                <div class="col-lg mt-lg-2 mt-3">
+                    <button class="btn btn-primary w-100" type="button" id="check_student_id" >CHECK</button>
+                </div>
+            </div>
         </div>
     </main>
 
 </body>
-
-
-<div class="modal fade" id="card-view-s" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h1 class="modal-title fs-5" id="exampleModalLabel">ตารางซ้อม</h1>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <div class="row">
-                    <div class="col-lg">
-                        <h5 name="s_name"></h5>
-                        <p name="s_date" class="d-inline"></p>
-                        <p class="d-inline" name="s_time"></p>
-                        <hr>
-                        <p name="s_note"></p>
-                    </div>
-                </div>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">CHECK</button>
-            </div>
-        </div>
-    </div>
-</div>
 
 
 

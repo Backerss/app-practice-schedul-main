@@ -322,11 +322,13 @@ $(document).ready(function () {
                     var time = data.S_time + " - " + data.S_endtime;
 
                     
-                    
+                    $('[name=s_id]').text(data.ID);
                     $('[name=s_name]').text(data.S_deteil);
                     $('[name=s_date]').text(data.S_date);
                     $('[name=s_time]').text(data.S_time + " - " + data.S_endtime);
                     $('[name=s_note]').text(data.S_note);
+
+                    
                 }
             });
 
@@ -431,5 +433,70 @@ $(document).ready(function () {
 
 
     });
+
+});
+
+
+$(document).ready(function () {
+
+    $('#check_student_id').click(function () {
+
+        //get ?act from url
+        var c_check_id = $('[name=check_id]').val();
+
+        
+        if(c_check_id == ""){
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'Please fill all fields!',
+            });
+            return false;
+        }
+
+
+        $.ajax({
+            url: '../inc/auth/check_student_id.php',
+            method: 'POST',
+            data: {
+                c_check_id: c_check_id
+            },
+            success: function (data) {
+                if(data == true){
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Success',
+                        text: 'NOW, You can register!',
+                        showConfirmButton: true,
+                    }).then(function () {
+                        $('#check_student_id').attr('disabled', 'true');
+                    });
+
+                    $('#check_student_id').attr('disabled', 'true');
+                    
+                }
+                else if(data == "ไม่ใช่วันนี้"){
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Oops...',
+                        text: 'NOT TODAY!',
+                    });
+                }
+                else
+                {
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Oops...',
+                        text: 'IS NOT STUDENT ID!',
+                    });
+    
+                    console.log(data);
+                }
+            }
+        });
+
+    });
+
+
 
 });
