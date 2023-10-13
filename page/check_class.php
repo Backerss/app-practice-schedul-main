@@ -21,6 +21,8 @@
     //get date
     $date = date("Y-m-d");
 
+    $role = $row["user_role"];
+
 ?>
 
 
@@ -73,6 +75,151 @@
 
     <main role="main" class="main-content">
         <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg">
+                    <h3>รายชื่อ</h3>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg">
+                    <div class="card">
+                        <div class="card-body">
+                            <table id="example" class="table table-striped table-bordered" style="width:100%">
+                                <thead>
+                                    <tr>
+                                        <th>ลำดับ</th>
+                                        <th>รหัสนักศึกษา</th>
+                                        <th>ชื่อ</th>
+                                        <th>เบอร์โทรศัพท์</th>
+                                        <th>อีเมล</th>
+                                        <th>สถานะ</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <?php
+                                        $sql = "SELECT * FROM user";
+                                        $result = mysqli_query($conn, $sql);
+                                        $count = 1;
+
+                                        while($row = mysqli_fetch_assoc($result)){
+                                            
+                                            if($row["user_role"] == "Admin")
+                                                continue;
+
+                                            $id = $row["ID"];
+                                            $s_id = $_GET["id"];
+                                            $sql = "SELECT * FROM check_schedul WHERE c_check_by = '$id' AND c_check_id = '$s_id'";
+                                            $result2 = mysqli_query($conn, $sql);
+
+                                            if(mysqli_num_rows($result2) > 0){
+                                                $row2 = mysqli_fetch_assoc($result2);
+                                                
+                                                if($row2["c_check_status"] == "มา"){
+                                                    $row["user_role"] = "มา";
+                                                }
+                                                else if($row2["c_check_status"] == "ไม่มา"){
+                                                    $row["user_role"] = "ไม่มา";
+                                                }
+                                                else{
+                                                    $row["user_role"] = "ไม่ได้เข้าร่วม";
+                                                }
+                                            }
+                                            else{
+                                                $row["user_role"] = "ไม่มา";
+                                            }
+                                            
+                                            echo "<tr>";
+                                            echo "<td>".$count."</td>";
+                                            echo "<td>".$row["user_student_id"]."</td>";
+                                            echo "<td>".$row["user_name"]."</td>";
+                                            echo "<td>".$row["user_tel"]."</td>";
+                                            echo "<td>".$row["user_email"]."</td>";
+
+                                            //selete status
+                                            
+                                            if($role == "Admin")
+                                            {
+
+                                                echo "<td>";
+                                                echo "<select class='form-select' aria-label='Default select example'>";
+                                                echo "<option selected>".$row["user_role"]."</option>";
+                                                echo "<option value='มา'>มา</option>";
+                                                echo "<option value='ไม่มา'>ไม่มา</option>";
+                                                echo "</select>";
+                                                echo "</td>";
+                                            }
+                                            else{
+                                                echo "<td>".$row["user_role"]."</td>";
+                                            }
+                                            echo "</tr>";
+
+                                            $count++;
+                                        
+                                           
+                                        }
+                                    ?>
+                                </tbody>
+                                <tfoot>
+                                    <tr>
+                                        <th>ลำดับ</th>
+                                        <th>รหัสนักศึกษา</th>
+                                        <th>ชื่อ</th>
+                                        <th>เบอร์โทรศัพท์</th>
+                                        <th>อีเมล</th>
+                                        <th>สถานะ</th>
+                                    </tr>
+                                </tfoot>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-3">
+                <div class="col-lg">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">สรุปผล</h5>
+                            <table class="table table-striped table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th>มา</th>
+                                        <th>ไม่มา</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <?php
+                                        $sql = "SELECT * FROM check_schedul WHERE c_check_id = '$s_id'";
+                                        $result = mysqli_query($conn, $sql);
+                                        $count = 0;
+                                        $count2 = 0;
+
+                                        while($row = mysqli_fetch_assoc($result)){
+                                            if($row["c_check_status"] == "มา"){
+                                                $count++;
+                                            }
+                                            
+                                        }
+
+                                        $sql = "SELECT * FROM user";
+                                        $result2 = mysqli_query($conn, $sql);
+
+                                        while($row2 = mysqli_fetch_assoc($result2)){
+                                            if($row2["user_role"] == "Admin")
+                                                continue;
+
+                                            $count2++;
+                                        }
+                                    ?>
+                                    <tr>
+                                        <td id="count1"></td>
+                                        <td id="count2"></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </main>
 
@@ -94,5 +241,32 @@
 <script src='../assets/js/jquery.dataTables.min.js'></script>
 <script src='../assets/js/dataTables.bootstrap4.min.js'></script>
 <script src='../js/main.js'></script>
+
+
+<!-- Add this script at the end of your HTML file, after including jQuery -->
+<script>
+    $(document).ready(function () {
+        // Count attendees and absentees
+        var countAttendees = 0;
+        var countAbsentees = 0;
+
+        // Loop through each row in the status table
+        $('#example tbody tr').each(function () {
+            var status = $(this).find('td:last').text().trim();
+
+            // Check the status and increment the corresponding counter
+            if (status === 'มา') {
+                countAttendees++;
+            } else if (status === 'ไม่มา') {
+                countAbsentees++;
+            }
+        });
+
+        // Display the counts in the summary table
+        $('#count1').text(countAttendees);
+        $('#count2').text(countAbsentees);
+    });
+</script>
+
 
 </html>

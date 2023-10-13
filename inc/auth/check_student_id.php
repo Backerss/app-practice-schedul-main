@@ -20,14 +20,14 @@
         exit();
     }
 
-    if($row["S_date"] != date("Y-m-d")){
+    /*if($row["S_date"] != date("Y-m-d")){
         echo $data = "ไม่ใช่วันนี้";
         exit();
     }
     else if($row["S_time"] < date("H:i:s")){
         echo $data = "ยังไม่ถึงเวลา";
         exit();
-    }
+    }*/
 
 
     $sql = "SELECT * FROM check_schedul WHERE c_check_id = '$id'";
