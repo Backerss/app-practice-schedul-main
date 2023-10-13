@@ -150,7 +150,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">CHECK</button>
+                <button type="button" id="check-class" class="btn btn-primary">CHECK</button>
             </div>
         </div>
     </div>

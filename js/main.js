@@ -500,3 +500,68 @@ $(document).ready(function () {
 
 
 });
+
+
+//check schedule 
+$(document).ready(function () {
+
+        $('#check-class').click(function () {
+
+             let s_name = $('[name=s_name]').text();
+
+             
+            $.ajax({
+                url: '../inc/auth/schedule_system.php',
+                method: 'POST',
+                data: {
+                    type: 'check',
+                    s_name: s_name
+                },
+                success: function (data) {
+                    
+                    if(data != false){
+                        
+                        data = JSON.parse(data);
+
+                        //check date time 
+                        let data_date = data.S_date;
+                        let data_time = data.S_time;
+                        let data_endtime = data.S_endtime;
+
+                        let date = new Date();
+                        let date_now = date.getFullYear() + "-" + (date.getMonth() + 1) + "-" + date.getDate();
+                        let time_now = date.getHours() + ":" + date.getMinutes();
+
+
+                        /*if(data_date < date_now || data_time < time_now){
+                            
+                            Swal.fire({
+                                icon: 'error',
+                                title: 'Oops...',
+                                text: 'เวลานี้ผ่านไปแล้ว!',
+                            });
+
+                        }*/
+
+                        window.location = '../page/check_class.php?id=' + data.ID;
+                        
+                    }
+                    else 
+                    {
+                        Swal.fire({
+                            icon: 'success',
+                            title: 'Success',
+                            text: 'NOW, You can register!',
+                            showConfirmButton: true,
+                        }).then(function () {
+                            $('#check-class').attr('disabled', 'true');
+                        });
+                    }
+        
+                }
+            });
+            
+
+        });
+
+});

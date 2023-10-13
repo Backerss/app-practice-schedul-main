@@ -96,6 +96,21 @@
 
         echo $data = json_encode($row);
     }
+    else if($type == "check")
+    {   
+        $name = $_POST['s_name'];
+        $sql = "SELECT * FROM schedul WHERE S_deteil = '$name'";
+        $result = mysqli_query($conn, $sql);
+
+        $row = mysqli_fetch_assoc($result);
+
+        if($row == null)
+           echo $data = false;
+
+
+        echo $data = json_encode($row);
+
+    }
 
 
 
