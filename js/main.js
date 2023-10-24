@@ -565,3 +565,84 @@ $(document).ready(function () {
         });
 
 });
+
+//edit-user
+$(document).ready(function () {
+
+    $('#edit-user-submit').click(function () {
+
+        let user_name = $('[name=edit_name]').val();
+        let edit_email = $('[name=edit_email]').val();
+        let edit_sex = $('[name=edit_sex]').val();
+        let edit_birthday = $('[name=edit_birthday]').val();
+        let edit_tel = $('[name=edit_tel]').val();
+        let edit_role = $('[name=edit_role]').val();
+        let edit_id_student = $('[name=edit_id_student]').val();
+        let edit_password = $('[name=edit_password]').val();
+        let edit_status = $('[name=edit_status]').val();
+        let edit_note = $('[name=edit_note]').val();
+
+        //get id from url
+        let edit_id = window.location.search;
+        edit_id = edit_id.replace("?id=", "");
+
+
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "You want to edit this user!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#d33',
+            cancelButtonColor: '#3085d6',
+            confirmButtonText: 'Yes'
+        }).then((result) => {
+            if(result.isConfirmed)
+            {
+                $.ajax({
+                    url: '../../inc/auth/edit_user.php',
+                    method: 'POST',
+                    data:{
+                        edit_id: edit_id,
+                        edit_name: user_name,
+                        edit_email: edit_email,
+                        edit_sex: edit_sex,
+                        edit_birthday: edit_birthday,
+                        edit_tel: edit_tel,
+                        edit_role: edit_role,
+                        edit_id_student: edit_id_student,
+                        edit_password: edit_password,
+                        edit_status: edit_status,
+                        edit_note: edit_note
+                        
+                    },success: function (data) {
+                        if(data == true){
+                            Swal.fire({
+                                icon: 'success',
+                                title: 'Success',
+                                text: 'Edit Successful!',
+                            })
+                        }else
+                        {
+                            Swal.fire({
+                                icon: 'error',
+                                title: 'Oops...',
+                                text: 'none',
+                            });
+        
+                            console.log(data);
+                        }
+                    }
+                })
+
+            }
+        })
+
+
+    });
+
+
+
+
+
+
+});

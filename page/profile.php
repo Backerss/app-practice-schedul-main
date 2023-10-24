@@ -22,8 +22,10 @@
 
     if($row["user_status"] == 0)
         $_SESSION['user_status'] = "Not Active";
-    else
+    else if($row["user_status"] == 1)
         $_SESSION['user_status'] = "Active";
+    else if($row["user_status"] == 3)
+        $_SESSION['user_status'] = "Graduated";
     
 
 ?>
