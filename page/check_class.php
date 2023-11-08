@@ -84,7 +84,7 @@
                 <div class="col-lg">
                     <div class="card">
                         <div class="card-body">
-                            <table id="example" class="table table-striped table-bordered" style="width:100%">
+                            <table id="view_class" class="table table-striped table-bordered" style="width:100%">
                                 <thead>
                                     <tr>
                                         <th>ลำดับ</th>
@@ -142,9 +142,20 @@
 
                                                 echo "<td>";
                                                 echo "<select class='form-select' aria-label='Default select example'>";
-                                                echo "<option selected>".$row["user_role"]."</option>";
-                                                echo "<option value='มา'>มา</option>";
-                                                echo "<option value='ไม่มา'>ไม่มา</option>";
+                                                
+                                                if($row["user_role"] == "มา"){
+                                                    echo "<option value='มา' selected>มา</option>";
+                                                    echo "<option value='ไม่มา'>ไม่มา</option>";
+                                                }
+                                                else if($row["user_role"] == "ไม่มา"){
+                                                    echo "<option value='มา'>มา</option>";
+                                                    echo "<option value='ไม่มา' selected>ไม่มา</option>";
+                                                }
+                                                else{
+                                                    echo "<option value='มา'>มา</option>";
+                                                    echo "<option value='ไม่มา'>ไม่มา</option>";
+                                                }
+
                                                 echo "</select>";
                                                 echo "</td>";
                                             }
@@ -244,6 +255,17 @@
 
 
 <!-- Add this script at the end of your HTML file, after including jQuery -->
+
+
+<script>
+    $(document).ready(function () {
+        $('#view_class').DataTable();
+    });
+</script>
+
+
+
+
 <script>
     $(document).ready(function () {
         // Count attendees and absentees
@@ -251,7 +273,7 @@
         var countAbsentees = 0;
 
         // Loop through each row in the status table
-        $('#example tbody tr').each(function () {
+        $('#view_class tbody tr').each(function () {
             var status = $(this).find('td:last').text().trim();
 
             // Check the status and increment the corresponding counter

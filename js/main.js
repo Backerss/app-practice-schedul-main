@@ -646,3 +646,64 @@ $(document).ready(function () {
 
 
 });
+
+
+
+$(document).ready(function () {
+
+
+    //get value from #example dataTable
+
+    //get value on last td
+    $('select').change(function () {
+
+        //get row on table
+        var row = $(this).closest('tr');
+        //get value on td
+        var id = row.find('td:eq(1)').text();
+
+
+        //get value on select
+        var status = $(this).val();
+
+
+        //get id on url
+        var id_url = window.location.search;
+        id_url = id_url.replace("?id=", "");
+
+        console.log(id_url);
+
+        $.ajax({
+            url: '../inc/auth/edit_check_class.php',
+            method: 'POST',
+            data: {
+                id: id,
+                status: status,
+                id_url: id_url
+            },
+            success: function (data) {
+                if(data == true){
+
+                }else
+                {
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Oops...',
+                        text: 'none',
+                    });
+    
+                    console.log(data);
+                }
+            }
+        });
+
+    });
+
+
+
+
+
+
+
+
+});
